@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assesment 1</title>
+	<title>Mini calculator</title>
 </head>
 <body>
-    <form>
-        <label for="angka1">Angka 1:</label>
-        <input type="number" id="angka1" name="angka1"><br>
+	<form method="post">
+		<input type="number" name="angka1" placeholder="Masukkan angka pertama"><br>
+		<input type="number" name="angka2" placeholder="Masukkan angka kedua"><br>
+		<select name="operator">
+			<option value="tambah">+</option>
+			<option value="kurang">-</option>
+			<option value="kali">*</option>
+			<option value="bagi">/</option>
+		</select><br>
+		<input type="submit" name="submit" value="Hitung">
+	</form>
+	<?php
+		if(isset($_POST['submit'])){
+			$angka1 = $_POST['angka1'];
+			$angka2 = $_POST['angka2'];
+			$operator = $_POST['operator'];
 
-        <label for="angka2">Angka 2:</label>
-        <input type="number" id="angka2" name="angka2"><br>
-
-        <label for="operator">Operator:</label>
-        <select id="operator" name="operator">
-              <option value="+">+</option>
-              <option value="-">-</option>
-              <option value=""></option>
-              <option value="/">/</option>
-        </select><br>
-
-        <input type="submit" value="Hitung">
-</form>
+			switch($operator){
+				case "tambah":
+					$hasil = $angka1 + $angka2;
+					break;
+				case "kurang":
+					$hasil = $angka1 - $angka2;
+					break;
+				case "kali":
+					$hasil = $angka1 * $angka2;
+					break;
+				case "bagi":
+					$hasil = $angka1 / $angka2;
+					break;
+			}
+			echo "<br>Hasil perhitungan: ".$hasil;
+		}
+	?>
 </body>
 </html>
