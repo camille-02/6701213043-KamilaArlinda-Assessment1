@@ -1,4 +1,3 @@
-
 <form>
       <label for="angka1">Angka 1:</label>
       <input type="number" id="angka1" name="angka1"><br>
